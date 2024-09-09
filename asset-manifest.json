@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Student-Management-App/static/css/main.1f4140e5.css",
+    "main.js": "/Student-Management-App/static/js/main.85346bb7.js",
+    "static/js/453.05a8b091.chunk.js": "/Student-Management-App/static/js/453.05a8b091.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/Student-Management-App/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/Student-Management-App/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "index.html": "/Student-Management-App/index.html",
+    "main.1f4140e5.css.map": "/Student-Management-App/static/css/main.1f4140e5.css.map",
+    "main.85346bb7.js.map": "/Student-Management-App/static/js/main.85346bb7.js.map",
+    "453.05a8b091.chunk.js.map": "/Student-Management-App/static/js/453.05a8b091.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f4140e5.css",
+    "static/js/main.85346bb7.js"
+  ]
+}
