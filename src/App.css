@@ -1,5 +1,6 @@
+/* General App Styles */
 .App {
-  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .App-logo {
@@ -34,5 +35,37 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Theme Styles */
+.App.light-mode {
+  background-color: #ffffff;
+  color: #353935;
+}
+
+.App.dark-mode {
+  background-color: #353935;
+  color: #ffffff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(8px + 2vmin);
+  }
+
+  .App-logo {
+    height: 30vmin;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    font-size: calc(6px + 2vmin);
+  }
+
+  .App-logo {
+    height: 20vmin;
   }
 }
