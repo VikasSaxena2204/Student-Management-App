@@ -1,10 +1,8 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 
-// Create a context for student data
 export const StudentContext = createContext(null);
 
-// Custom hook to use the StudentContext
 export const useStudents = () => {
     const context = useContext(StudentContext);
     if (!context) {
@@ -27,7 +25,6 @@ const getStudents = async () => {
     }
 };
 
-// Function to create a new student
 const createStudent = async (studentData) => {
     try {
         const response = await axios.post(API_URL, studentData);
@@ -38,7 +35,6 @@ const createStudent = async (studentData) => {
     }
 };
 
-// Function to update student data
 const updateStudent = async (id, studentData) => {
     try {
         const response = await axios.put(`${API_URL}/${id}`, studentData);
@@ -59,34 +55,33 @@ const deleteStudent = async (id) => {
     }
 };
 
-// StudentProvider component to manage student state and provide it to child components
 export const StudentProvider = ({ children }) => {
-    const [students, setStudents] = useState([]); // State to hold student data
-    const [loading, setLoading] = useState(false); // Loading state to manage API request status
-    const [error, setError] = useState(null); // Error state to handle any issues during API requests
+    const [students, setStudents] = useState([]); 
+    const [loading, setLoading] = useState(false); 
+    const [error, setError] = useState(null);
 
-    // Function to fetch and set students data
+
     const fetchStudents = useCallback(async () => {
-        setLoading(true); // Set loading to true before the request starts
-        setError(null); // Reset error state before fetching
+        setLoading(true); 
+        setError(null); 
         try {
             const data = await getStudents();
-            setStudents(data); // Update state with fetched data
+            setStudents(data);
         } catch (err) {
-            setError('Failed to fetch student data.'); // Set error message if API call fails
+            setError('Failed to fetch student data.'); 
         } finally {
-            setLoading(false); // Set loading to false once the request is complete
+            setLoading(false); 
         }
     }, []);
 
     useEffect(() => {
-        fetchStudents(); // Fetch students when component mounts
-        const interval = setInterval(fetchStudents, 60000); // Auto-refresh every 60 seconds
+        fetchStudents(); 
+        const interval = setInterval(fetchStudents, 60000); 
 
-        return () => clearInterval(interval); // Clean up interval on component unmount
+        return () => clearInterval(interval); 
     }, [fetchStudents]);
 
-    // Provide student data, loading, error, and CRUD operations to child components
+  
     return (
         <StudentContext.Provider value={{ students, setStudents, loading, error, createStudent, updateStudent, deleteStudent, refreshStudents: fetchStudents }}>
             {children}
